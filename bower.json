@@ -1,0 +1,19 @@
+{
+  "name": "generator",
+  "version": "0.0.0",
+  "authors": [
+    "Adam Faryna <adamfaryna@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasmine-jquery": "~2.1.0",
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/generator.js"></script>
+</head>
+<body>
+
+<div id="header"></div>
+
+<div id="content"></div>
+
+<div id="footer"></div>
+
+<script type="text/javascript">
+    $(function () {
+        var generator = Generator();
+        generator.fillContainerWithElems('content');
+    });
+</script>
+
+</body>
+</html>

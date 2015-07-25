@@ -1,0 +1,13 @@
+.parent .clickable.clicked {
+  background-color: red;
+}
+
+.parent span {
+  background-color: green;
+  width: 5em;
+  height: 5em;
+  display: block;
+  text-align: center;
+  margin-bottom: 0.5em;
+  padding: .5em;
+}
