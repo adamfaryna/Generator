@@ -1,7 +1,14 @@
 'use strict';
 
+/**
+ * Elements generator.
+ */
 function Generator() {
 
+  /**
+   * Fills container element with ID <strong>containerId</strong> with generated elements.
+   * @param containerId {string} container ID.
+   */
   var fillContainerWithElems = function (containerId) {
     var $divWithElems = generateDivWithElems();
     setEvents($divWithElems);
@@ -31,7 +38,7 @@ function Generator() {
     }
 
     return $elem;
-  }
+  };
 
   var setEvents = function ($parentDiv) {
     $('.clickable', $parentDiv).on('click', function () {

@@ -1,10 +1,11 @@
 'use strict';
+/* global Generator: false */
 
 describe('Generator', function () {
   var generator;
 
   beforeAll(function () {
-    generator = Generator();
+    generator = new Generator();
   });
 
   describe("is able to fill content with elements", function () {
