@@ -6,18 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Adam Faryna",
-  "license": "ISC",
+  "author": "adamfaryna@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jasmine": "^0.9.0",
     "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-uglify": "^0.9.1",
-    "grunt-karma": "^0.12.0",
-    "jasmine-core": "^2.3.4",
-    "karma": "^0.13.3",
-    "karma-jasmine": "^0.3.6"
+    "jasmine-core": "^2.3.4"
   }
 }

@@ -5,41 +5,58 @@ describe('Generator', function () {
 
   beforeAll(function () {
     generator = Generator();
-    setFixtures('<div id="content"></div>');
   });
 
-  describe("is able to fill content with elems", function () {
+  describe("is able to fill content with elements", function () {
+    var childElements;
 
-    beforeAll(function () {
+    beforeEach(function () {
+      setFixtures('<div id="content"></div>');
       generator.fillContainerWithElems('content');
+      childElements = $('#content .parent').children();
     });
 
     it('its generate exactly 100 elements', function () {
-      var result = $('#content .parent').children().length;
+      var result = childElements.length;
       expect(result).toBe(100);
     });
 
-    it('every third generated element changes its style when clicked', function () {
+    it('every third generated element is marked as clickable', function () {
+      throwIfChildElementsCountNotOk();
+
       var index = 1;
-
-      console.log("aaaaaaaaaaa");
-
-      $('#content .parent').children().each(function () {
-        console.log("index: " + index);
-
-        var $this = $(this);
-        var hasClickableClass = $this.hasClass('clickable');
-
-
-        if (index % 3 === 0) {
-          expect(hasClickableClass).toBe(true);
-
-        } else {
-          expect(hasClickableClass).toBe(false);
-        }
+      childElements.each(function () {
+        var isNThirdElement = (index % 3 === 0);
+        var hasClickableClass = $(this).hasClass('clickable');
+        var assertResult = (isNThirdElement === hasClickableClass);
+        expect(assertResult).toBeTruthy();
 
         index++;
+        // exit loop on first assert error
+        return assertResult;
       });
     });
+
+    it('every third generated element changes its style when clicked', function () {
+      throwIfChildElementsCountNotOk();
+
+      var index = 1;
+      childElements.each(function () {
+        var isNThirdElement = (index % 3 === 0);
+        var isChangedAfterClicked = $(this).click().hasClass('clickable clicked');
+        var assertResult = (isNThirdElement === isChangedAfterClicked);
+        expect(assertResult).toBeTruthy();
+
+        index++;
+        // exit loop on first assert error
+        return assertResult;
+      });
+    });
+
+    function throwIfChildElementsCountNotOk() {
+      if (childElements.length !== 100) {
+        throw 'Test bootstrap error, expected 100 elements actual ' + childElements.length + '!';
+      }
+    }
   });
 });
