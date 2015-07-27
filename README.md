@@ -22,4 +22,4 @@ Run unit tests:
 
 Start your web browser and open Generator/app/index.html.
 
-## Have a fun
+## Have a fun!
